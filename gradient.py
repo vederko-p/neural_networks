@@ -58,7 +58,7 @@ if __name__ == '__main__':
     for i in range(2):
         ax.append(fig.add_subplot(gs[i]))
 
-    ax[0].plot(X_train, Y_train, '.')
+    ax[0].plot(X_train, Y_train, '.', label='Данные')
     ax[0].set_title('Регрессия')
 
     # ---| Модель и обучение |---
@@ -76,6 +76,7 @@ if __name__ == '__main__':
 
     # ---| Визуализация |---
     ax[0].plot(X_pred[:, 1], Y_pred, label='Модель')
+    ax[0].legend()
 
     ax[1].plot(linear_regr.qx)
     ax[1].set_title('Функционал качества')
