@@ -1,4 +1,6 @@
 
+# 03.09
+
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import gridspec
@@ -16,14 +18,14 @@ class Gradient():
     def fit(self, X, Y, Q, h, eps):
         w0 = np.zeros(X.shape[1]).reshape(1, -1)
         qx = np.array([])
-        q = Q(X_train, Y_train, w0)
+        q = Q(X, Y, w0)
         qx = np.hstack([qx, q])
         while True:
             w1 = w0 - h*Q_grad(Q, X, Y, w0)
             if (w1 - w0)@(w1 - w0).T <= eps * (1 + w1@w1.T):
                 break
             w0 = w1.copy()
-            q = Q(X_train, Y_train, w0)
+            q = Q(X, Y, w0)
             qx = np.hstack([qx, q])
         return w0, qx
 
