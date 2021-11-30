@@ -1,0 +1,6 @@
+
+MinMaxScaler - нормализация
+
+при импорте данных:
+dtype={'num_passangers': np.float32}
+
